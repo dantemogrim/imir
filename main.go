@@ -4,18 +4,19 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dantemogrim/imir/cmd"
+	"github.com/dantemogrim/imir/pkg/api"
+	"github.com/dantemogrim/imir/pkg/flags"
+	"github.com/dantemogrim/imir/pkg/messages"
+	"github.com/dantemogrim/imir/pkg/styles"
 	"github.com/dantemogrim/imir/pkg/utils"
-	// "github.com/gernest/wow/spin"
 )
 
 func main() {
-	cmd.ParseFlags()
+	flags.Init()
 
 	utils.SpinnerStart()
 
-
-	// IMIR, error := api.Fetch()
+	IMIR, error := api.Fetch()
 
 	time.Sleep(2 * time.Second)
 
@@ -23,18 +24,13 @@ func main() {
 
 	fmt.Printf(utils.ClearScreen)
 
-	// if error != nil {
-	// 	fmt.Println(styles.ApiError(messages.ConnFailure + error.Error()))
-	// 	return
-	// }
+	if error != nil {
+		fmt.Println(styles.ApiError(messages.ConnFailure + error.Error()))
+		return
+	}
 
 	fmt.Printf(utils.ClearScreen)
 
-	// status := styles.BackwardRotation(messages.BackwardRotation)
-
-	// if !IMIR {
-	// 	status = styles.ForwardRotation(messages.ForwardRotation)
-	// }
-
-//	fmt.Println(status)
+	// TODO - return default message
+	fmt.Println(IMIR)
 }
