@@ -2,44 +2,39 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"time"
 
 	"github.com/dantemogrim/imir/cmd"
-	"github.com/dantemogrim/imir/pkg/api"
-	"github.com/dantemogrim/imir/pkg/styles"
-	"github.com/gernest/wow"
-	"github.com/gernest/wow/spin"
+	"github.com/dantemogrim/imir/pkg/utils"
+	// "github.com/gernest/wow/spin"
 )
 
 func main() {
 	cmd.ParseFlags()
 
-	spinner := wow.New(os.Stdout, spin.Get(spin.Star), " Stargazing.. 🔭")
-	spinner.Start()
+	utils.SpinnerStart()
 
-	isRetrograde, error := api.FetchMercuryRetrogradeStatus()
+
+	// IMIR, error := api.Fetch()
 
 	time.Sleep(2 * time.Second)
 
-	spinner.PersistWith(spin.Spinner{Frames: []string{""}}, "")
+	// spinner.PersistWith(spin.Spinner{Frames: []string{""}}, "")
 
-	// Clear screen
-	fmt.Printf("\x1bc")
+	fmt.Printf(utils.ClearScreen)
 
-	if error != nil {
-		errorMessage := styles.ApiError("Wasn't able to connect to the Mercury Retrograde API. Status: " + error.Error())
-		fmt.Println(errorMessage)
-		return
-	}
+	// if error != nil {
+	// 	fmt.Println(styles.ApiError(messages.ConnFailure + error.Error()))
+	// 	return
+	// }
 
-	fmt.Printf("\x1bc")
+	fmt.Printf(utils.ClearScreen)
 
-	status := styles.Backward("Mercury is in retrograde!")
+	// status := styles.BackwardRotation(messages.BackwardRotation)
 
-	if !isRetrograde {
-		status = styles.Forward("Mercury is not in retrograde.")
-	}
+	// if !IMIR {
+	// 	status = styles.ForwardRotation(messages.ForwardRotation)
+	// }
 
-	fmt.Println(status)
+//	fmt.Println(status)
 }
