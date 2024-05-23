@@ -77,7 +77,7 @@ func (p pager) View() string {
 }
 
 func (p pager) helpView() string {
-	return helpStyle("\n  ↑/↓: Navigate • q: Quit\n")
+	return helpStyle("\n ↑/↓: Navigate • q: Quit\n")
 }
 
 func Render() {

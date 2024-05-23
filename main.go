@@ -18,9 +18,8 @@ func main() {
 
 	IMIR, error := api.Fetch()
 
+	// Simulate loading time for dramatic effect.
 	time.Sleep(2 * time.Second)
-
-	// spinner.PersistWith(spin.Spinner{Frames: []string{""}}, "")
 
 	fmt.Printf(utils.ClearScreen)
 
@@ -31,6 +30,5 @@ func main() {
 
 	fmt.Printf(utils.ClearScreen)
 
-	// TODO - return default message
-	fmt.Println(IMIR)
+	fmt.Println(messages.Result(IMIR))
 }

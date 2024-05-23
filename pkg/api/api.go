@@ -7,40 +7,39 @@ import (
 
 type Payload struct {
 	Status string
-	IMIR bool `json:"is_retrograde"`
+	IMIR   bool `json:"is_retrograde"`
 }
 
 func Fetch() (bool, error) {
-    url := "https://mercuryretrogradeapi.com"
+	url := "https://mercuryretrogradeapi.com"
 
-    response, error := http.Get(url)
-    // TODO: Handle errors.
-    if error != nil {
-        return false, error
-    }
-    defer response.Body.Close()
+	response, err := http.Get(url)
+	if err != nil {
+		return false, err
+	}
+	defer response.Body.Close()
 
-    var result Payload
-    if error := json.NewDecoder(response.Body).Decode(&result); error != nil {
-        return false, error
-    }
+	var result Payload
+	if err := json.NewDecoder(response.Body).Decode(&result); err != nil {
+		return false, err
+	}
 
-    return result.IMIR, nil
+	return result.IMIR, nil
 }
 
 func FetchByDateInput(givenDate string) (bool, error) {
-    url := "https://mercuryretrogradeapi.com?date=" + givenDate
+	url := "https://mercuryretrogradeapi.com?date=" + givenDate
 
-    response, error := http.Get(url)
-    if error != nil {
-        return false, error
-    }
-    defer response.Body.Close()
+	response, err := http.Get(url)
+	if err != nil {
+		return false, err
+	}
+	defer response.Body.Close()
 
-    var result Payload
-    if error := json.NewDecoder(response.Body).Decode(&result); error != nil {
-        return false, error
-    }
+	var result Payload
+	if err := json.NewDecoder(response.Body).Decode(&result); err != nil {
+		return false, err
+	}
 
-    return result.IMIR, nil
+	return result.IMIR, nil
 }

@@ -9,6 +9,8 @@ require (
 	github.com/charmbracelet/lipgloss v0.10.0
 	github.com/gernest/wow v0.1.0
 	github.com/integrii/flaggy v1.5.2
+	github.com/jarcoal/httpmock v1.3.1
+	golang.org/x/term v0.20.0
 )
 
 require (
@@ -36,6 +38,5 @@ require (
 	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.20.0 // indirect
-	golang.org/x/term v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 )
