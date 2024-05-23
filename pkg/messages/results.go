@@ -14,7 +14,7 @@ func Result(IMIR bool) string {
 }
 
 func DatedResult(givenDate time.Time, IMIR bool) string {
-	tense := datedTense(givenDate)
+	var tense []string = datedTense(givenDate)
 	if !IMIR {
 		return "Mercury " + tense[1] + " in retrograde " + givenDate.Format("2006-01-02") + "."
 	}
@@ -22,7 +22,7 @@ func DatedResult(givenDate time.Time, IMIR bool) string {
 }
 
 func datedTense(givenDate time.Time) []string {
-	today := time.Now()
+	var today time.Time = time.Now().UTC().Truncate(24 * time.Hour)
 	var trueResponse, falseResponse string
 
 	switch {
