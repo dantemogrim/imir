@@ -11,7 +11,7 @@
 
 ## 💾 Installation
 
-📋 **Prerequisites:**
+📋 **Requirements:**
 
 - [Go](https://go.dev/)
 
@@ -45,15 +45,20 @@ $ imir -d 2025-01-29
 
 ## Tests
 
-```shell
-$ go run test
+📋 **Requirements:**
+
+- [Fish Shell](https://fishshell.com/)
+
+```fish
+# From this project's root dir.
+$ chmod +x ./scripts/run_tests.fish
+$ ./scripts/run_tests.fish
 ```
 
 ### Backlog
 
-- [ ] Create an error service.
+- [ ] Create an error service?
 - [ ] Replace flaggy with native flag library option. Only short flags are working now anyways.
-- [ ] Create tests.
 - [ ] Create bubbletea styles.
-- [ ] Finish `README.md` and "Build From Source" docs.
+- [ ] Finish `README.md`.
 - [ ] Upload to homebrew.
