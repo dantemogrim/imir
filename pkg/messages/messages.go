@@ -1,3 +1,3 @@
 package messages
 
-const ConnFailure string = "Wasn't able to connect to the Mercury Retrograde API. Status: "
+const ConnFailure string = "😔\n\nWasn't able to connect to the Mercury Retrograde API. Status: "

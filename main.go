@@ -18,17 +18,15 @@ func main() {
 
 	IMIR, error := api.Fetch()
 
-	// Simulate loading time for dramatic effect.
+	// Simulate loading time 4 dramatic effect.
 	time.Sleep(2 * time.Second)
 
-	fmt.Printf(utils.ClearScreen)
-
 	if error != nil {
-		fmt.Println(styles.ApiError(messages.ConnFailure + error.Error()))
+		fmt.Println(styles.Err(messages.ConnFailure + error.Error()))
 		return
 	}
 
-	fmt.Printf(utils.ClearScreen)
+	fmt.Println(utils.ClearScreen)
 
 	fmt.Println(messages.Result(IMIR))
 }

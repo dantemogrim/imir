@@ -19,7 +19,7 @@ func dateOption() {
 	parsedUserDate, dateError := time.Parse("2006-01-02", userDateInput)
 
 	if dateError != nil {
-		errorMessage := styles.ApiError("There was an issue when validating the given date.\nError: " + dateError.Error())
+		errorMessage := styles.Err("There was an issue when validating the given date.\nError: " + dateError.Error())
 		usageMessage := "imir --date <yyyy-mm-dd>\nExample: $ imir --date 2018-04-28"
 		fmt.Println(errorMessage)
 		fmt.Println(usageMessage)

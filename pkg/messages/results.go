@@ -2,23 +2,23 @@ package messages
 
 import (
 	"time"
+
+	"github.com/dantemogrim/imir/pkg/styles"
 )
 
 func Result(IMIR bool) string {
 	if !IMIR {
-		// TODO styles
-		return "Mercury is not in retrograde."
+		return styles.NotRetrograde("🕊️\n\nMercury is *not* in retrograde.")
 	}
-	// TODO retrograde styles (see bubbletea examples)
-	return "Mercury is in retrograde."
+	return styles.Retrograde("👹\n\nMercury is in retrograde.")
 }
 
 func DatedResult(givenDate time.Time, IMIR bool) string {
 	var tense []string = datedTense(givenDate)
 	if !IMIR {
-		return "Mercury " + tense[1] + " in retrograde " + givenDate.Format("2006-01-02") + "."
+		return styles.NotRetrograde("🕊️\n\nMercury " + tense[1] + " in retrograde " + givenDate.Format("2006-01-02") + ".")
 	}
-	return "Mercury " + tense[0] + " in retrograde " + givenDate.Format("2006-01-02") + "."
+	return styles.Retrograde("👹\n\nMercury " + tense[0] + " in retrograde " + givenDate.Format("2006-01-02") + ".")
 }
 
 func datedTense(givenDate time.Time) []string {
