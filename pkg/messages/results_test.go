@@ -1,30 +1,39 @@
 package messages
 
 import (
+	"fmt"
 	"testing"
 	"time"
+
+	"github.com/dantemogrim/imir/pkg/styles"
 )
 
 func TestResult(t *testing.T) {
-	if Result(true) != "Mercury is in retrograde." {
+	var expectedRetrograde string = styles.Retrograde(retrogradeTxt)
+	var expectedNotRetrograde string = styles.NotRetrograde(notRetrogradeTxt)
+
+	if Result(true) != expectedRetrograde {
 		t.Errorf("Result(true) failed, expected 'Mercury is in retrograde.', got %v", Result(true))
 	}
 
-	if Result(false) != "Mercury is not in retrograde." {
-		t.Errorf("Result(false) failed, expected 'Mercury is not in retrograde.', got %v", Result(false))
+	if Result(false) != expectedNotRetrograde {
+		t.Errorf("Result(false) failed, expected 'Mercury is *not* in retrograde.', got %v", Result(false))
 	}
 }
 
 func TestDatedResult(t *testing.T) {
-	var past time.Time = time.Date(2021, 12, 31, 0, 0, 0, 0, time.UTC)
+	var past time.Time = time.Now().AddDate(-1, 0, 0)
 	var future time.Time = time.Now().AddDate(1, 0, 0)
 
-	if DatedResult(past, true) != "Mercury was in retrograde 2021-12-31." {
-		t.Errorf("DatedResult(past, true) failed, expected 'Mercury was in retrograde 2021-12-31.', got %v", DatedResult(past, true))
+	var expectedRetrograde string = styles.Retrograde(fmt.Sprintf(datedRetrogradeTxt, "was", past.Format("2006-01-02")))
+	var expectedNotRetrograde string = styles.NotRetrograde(fmt.Sprintf(datedNotRetrogradeTxt, "won't be", future.Format("2006-01-02")))
+
+	if DatedResult(past, true) != expectedRetrograde {
+		t.Errorf("DatedResult(past, true) failed, expected '"+expectedRetrograde+"', got %v", DatedResult(past, true))
 	}
 
-	if DatedResult(future, false) != "Mercury won't be in retrograde "+future.Format("2006-01-02")+"." {
-		t.Errorf("DatedResult(future, false) failed, expected 'Mercury won't be in retrograde %v.', got %v", future.Format("2006-01-02"), DatedResult(future, false))
+	if DatedResult(future, false) != expectedNotRetrograde {
+		t.Errorf("DatedResult(future, false) failed, expected '"+expectedNotRetrograde+"' got %v", DatedResult(future, false))
 	}
 }
 

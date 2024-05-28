@@ -59,6 +59,5 @@ $ ./scripts/run_tests.fish
 
 - [ ] Create an error service?
 - [ ] Replace flaggy with native flag library option. Only short flags are working now anyways.
-- [ ] Create bubbletea styles.
 - [ ] Finish `README.md`.
 - [ ] Upload to homebrew.

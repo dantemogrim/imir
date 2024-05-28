@@ -13,6 +13,7 @@ import (
 
 var helpStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("241")).PaddingBottom(1).Render
 
+// TODO - check Bubbletea's README.md for best practices.
 type pager struct {
 	viewport viewport.Model
 }
@@ -36,6 +37,7 @@ func newPager() (*pager, error) {
 		glamour.WithAutoStyle(),
 		glamour.WithWordWrap(width),
 	)
+
 	if err != nil {
 		return nil, err
 	}
