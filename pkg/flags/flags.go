@@ -1,34 +1,27 @@
 package flags
 
 import (
-	"github.com/integrii/flaggy"
+	"flag"
 )
 
 var (
-	aboutFlag = false
-	dateFlag  string
+	about *bool   = flag.Bool("a", false, "Learn more about Mercury in Retrograde.")
+	date  *string = flag.String("d", "1991-12-31", "Was Mercury in retrograde on a specific date?")
+	help  *bool   = flag.Bool("h", false, "Print help message.")
 )
 
 func Init() {
-	// TODO - replace flaggy with flag library.
-	// TODO - add help flag.
-	flaggy.DefaultParser.ShowVersionWithVersionFlag = false
-	flaggy.DefaultParser.ShowHelpOnUnexpected = true
-	flaggy.SetName("imir")
-	flaggy.SetDescription("Is Mercury In Retrograde?\n")
-	flaggy.DefaultParser.AdditionalHelpPrepend = "http://github.com/dantemogrim/imir"
+	flag.Parse()
 
-	flaggy.Bool(&aboutFlag, "a", "about", "Learn more about Mercury in Retrograde.")
-	flaggy.String(&dateFlag, "d", "date YYYY-MM-DD", "Check if Mercury was in retrograde during a specific date.")
+	if *help {
+		helpOption()
+	}
 
-	flaggy.Parse()
-
-	if dateFlag != "" {
+	if *date != "" {
 		dateOption()
 	}
 
-	if aboutFlag {
+	if *about {
 		aboutOption()
 	}
-
 }

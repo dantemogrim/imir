@@ -29,7 +29,6 @@ func dateOption() {
 	// Format the date back to a string (to later concatenate with API endpoint).
 	formattedDateString := parsedUserDate.Format("2006-01-02")
 
-	// fmt.Println("Type of formattedDateString: ", reflect.TypeOf(formattedDateString))
 	fetchResult, fetchError := api.FetchByDateInput(formattedDateString)
 
 	if fetchError != nil {

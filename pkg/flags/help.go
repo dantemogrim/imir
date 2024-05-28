@@ -1,3 +1,13 @@
 package flags
 
-// TODO
+import (
+	"flag"
+	"fmt"
+	"os"
+)
+
+func helpOption() {
+	fmt.Println("Usage:")
+	flag.PrintDefaults()
+	os.Exit(0)
+}
