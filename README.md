@@ -59,5 +59,6 @@ $ ./scripts/run_tests.fish
 
 - [ ] Create an error service?
 - [ ] Replace flaggy with native flag library option. Only short flags are working now anyways.
-- [ ] Finish `README.md`.
-- [ ] Upload to homebrew.
+- [ ] Finish `README.md` (including preview image, build binaries).
+- [ ] Polish "about" content.
+- [ ] Upload formula to homebrew.

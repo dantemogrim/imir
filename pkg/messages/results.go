@@ -7,43 +7,43 @@ import (
 	"github.com/dantemogrim/imir/pkg/styles"
 )
 
-const (
-	retrogradeTxt         string = "👹\n\nMercury is in retrograde."
-	notRetrogradeTxt      string = "️🕊️\n\nMercury is *not* in retrograde."
-	datedRetrogradeTxt    string = "👹\n\nMercury %s in retrograde %s."
-	datedNotRetrogradeTxt string = "️🕊️\n\nMercury %s in retrograde %s."
+type message struct {
+	IMIR bool
+	text string
+}
+
+var (
+	retrograde    = message{true, "👹\n\nMercury %s in retrograde"}
+	notRetrograde = message{false, "🕊️\n\nMercury %s *not* in retrograde"}
 )
 
 func Result(IMIR bool) string {
 	if !IMIR {
-		return styles.NotRetrograde(notRetrogradeTxt)
+		return styles.NotRetrograde(fmt.Sprintf(notRetrograde.text, "is") + ".")
 	}
-	return styles.Retrograde(retrogradeTxt)
+	return styles.Retrograde(fmt.Sprintf(retrograde.text, "is") + ".")
 }
 
 func DatedResult(givenDate time.Time, IMIR bool) string {
-	var tense []string = datedTense(givenDate)
+	var tense string = tenseByDate(givenDate)
 	if !IMIR {
-		return styles.NotRetrograde(fmt.Sprintf(datedNotRetrogradeTxt, tense[1], givenDate.Format("2006-01-02")))
+		return styles.NotRetrograde(fmt.Sprintf(notRetrograde.text, tense) + " " + givenDate.Format("2006-01-02") + ".")
 	}
-	return styles.Retrograde(fmt.Sprintf(datedRetrogradeTxt, tense[0], givenDate.Format("2006-01-02")))
+	return styles.Retrograde(fmt.Sprintf(retrograde.text, tense) + " " + givenDate.Format("2006-01-02") + ".")
 }
 
-func datedTense(givenDate time.Time) []string {
+func tenseByDate(givenDate time.Time) string {
 	var today time.Time = time.Now().UTC().Truncate(24 * time.Hour)
-	var trueResponse, falseResponse string
+	var response string
 
 	switch {
 	case givenDate.Before(today):
-		trueResponse = "was"
-		falseResponse = "wasn't"
+		response = "was"
 	case givenDate.After(today):
-		trueResponse = "will be"
-		falseResponse = "won't be"
+		response = "will be"
 	default:
-		trueResponse = "is"
-		falseResponse = "is not"
+		response = "is"
 	}
 
-	return []string{trueResponse, falseResponse}
+	return response
 }
