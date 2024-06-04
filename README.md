@@ -17,15 +17,25 @@
 
   - _See exact version inside `go.sum:3`._
 
-1. Clone this repository and `cd` into its root directory.
+Clone this repository and `cd` into its root directory.
 
 ```shell
-#
-$ go install
-$ go run main.go
-```
+# Compile the app.
+$ go build
+# On Linux or Mac:
+$ ./imir
+# On Windows:
+$ imir.exe
 
-> Building from source? Do the following steps to get hold of the binary file.
+# Install the created binary file.
+$ go install
+
+# Run the program either by running
+# the main file (if tinkering with the repo locally etc)
+$ go run main.go
+# .. or by using the installed binary file.
+$ imir
+```
 
 ## 🚀 Usage
 
@@ -39,7 +49,7 @@ $ imir -h
 # Learn more about Mercury in retrograde.
 $ imir -a
 
-# See if Mercury is/was/will be in retrograde a specific date.
+# Is/was/will Mercury be in retrograde during a given date?
 $ imir -d 2025-01-29
 ```
 
@@ -52,13 +62,6 @@ $ imir -d 2025-01-29
 ```fish
 # From this project's root dir.
 $ chmod +x ./scripts/run_tests.fish
+# Run tests.
 $ ./scripts/run_tests.fish
 ```
-
-### Backlog
-
-- [ ] Create an error service?
-- [ ] Replace flaggy with native flag library option. Only short flags are working now anyways.
-- [ ] Finish `README.md` (including preview image, build binaries).
-- [ ] Polish "about" content.
-- [ ] Upload formula to homebrew.
