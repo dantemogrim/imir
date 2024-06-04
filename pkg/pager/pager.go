@@ -13,7 +13,6 @@ import (
 
 var helpStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("241")).PaddingBottom(1).Render
 
-// TODO - check Bubbletea's README.md for best practices.
 type pager struct {
 	viewport viewport.Model
 }
