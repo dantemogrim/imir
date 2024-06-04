@@ -1,12 +1,13 @@
-# imir
+# IMIR
 
-<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcG4xMWdyNGx4cGN2dGhpbWVtaWU0cTM5MGNlZnp3MDJweXM0enBqMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S984YkgY62vvSUAwhv/giphy-downsized.gif" width="100%" height="auto">
+<img src="./pkg/assets/imir.png" alt="IMIR" width="100%" height="auto">
 
 > 🔮 _"**I**s **M**ercury **I**n **R**etrograde?"_
 
-- Do you ever find yourself staring at your service provider's status page when troubleshooting outages? Look no further! Find out if the answer behind your malfunctioning technology lies within the movement of our moonless, littlest planet - Mercury!
+- Do you continuously find yourself staring at your service provider's status page when troubleshooting outages? Now - there's no need! Find the answers behind your malfunctioning technology right from your CLI! This zap powered app performs robust cyber requests regarding the movement of our moonless, littlest planet - Mercury!
 - The direction of Mercury is now available directly from the comfort of your own CLI!
-- Inform your astrology hating friends that you love to annoy!
+- By a single command stroke, you can annoy your astrology hating friends and coworkers!
+- Level up your astrology game with this aggressively pseudoscientific tool!
 - Shout out to the creator(s) behind the public [Mercury Retrograde API](https://mercuryretrogradeapi.com/about.html) for making this possible.
 
 ## 💾 Installation
@@ -22,7 +23,7 @@ Clone this repository and `cd` into its root directory.
 ```shell
 # Compile the app.
 $ go build
-# On Linux or Mac:
+# On Linux/Mac:
 $ ./imir
 # On Windows:
 $ imir.exe
@@ -53,7 +54,7 @@ $ imir -a
 $ imir -d 2025-01-29
 ```
 
-## Tests
+## 🔬 Tests
 
 📋 **Requirements:**
 
