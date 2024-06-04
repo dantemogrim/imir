@@ -10,7 +10,6 @@ import (
 	"github.com/dantemogrim/imir/pkg/styles"
 )
 
-// TODO mimic default command's execution flow or vice versa once one is "finished".
 func dateOption() {
 	// Access and store the 2nd argument (excluding program name & date flag).
 	userDateInput := os.Args[2]
