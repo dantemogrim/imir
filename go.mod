@@ -7,7 +7,6 @@ require (
 	github.com/charmbracelet/bubbletea v0.24.1
 	github.com/charmbracelet/glamour v0.7.0
 	github.com/charmbracelet/lipgloss v0.10.0
-	github.com/gernest/wow v0.1.0
 	github.com/jarcoal/httpmock v1.3.1
 	golang.org/x/term v0.20.0
 )
@@ -32,7 +31,6 @@ require (
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/yuin/goldmark v1.5.4 // indirect
 	github.com/yuin/goldmark-emoji v1.0.2 // indirect
-	golang.org/x/crypto v0.23.0 // indirect
 	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.20.0 // indirect
